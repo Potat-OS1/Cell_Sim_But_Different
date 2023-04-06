@@ -4,7 +4,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
@@ -23,8 +22,6 @@ public class UI {
     private VBox ParticleBox, BrushBox, sidePane;
     @FXML
     private AnchorPane particleScroll;
-    @FXML
-    private Pane basePane;
 
     public void fillClicked() {
         brushState = BrushStates.FILL;

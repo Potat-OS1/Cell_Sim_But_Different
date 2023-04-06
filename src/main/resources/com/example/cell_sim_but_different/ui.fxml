@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cell_sim_but_different.brush.UI">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="199.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cell_sim_but_different.brush.UI">
    <children>
       <StackPane fx:id="ControlPanel" prefHeight="600.0" prefWidth="200.0" style="-fx-background-color: #1f1f14;">
          <padding>
@@ -44,7 +44,7 @@
                         </StackPane>
                      </children>
                   </HBox>
-                  <ScrollPane hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0">
+                  <ScrollPane hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #adad85;">
                     <content>
                       <AnchorPane fx:id="particleScroll" minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="166.0" style="-fx-background-color: #adad85;">
                            <children>
@@ -53,7 +53,7 @@
                         </AnchorPane>
                     </content>
                   </ScrollPane>
-                  <ScrollPane hbarPolicy="NEVER" prefHeight="292.0" prefWidth="180.0">
+                  <ScrollPane hbarPolicy="NEVER" prefHeight="292.0" prefWidth="180.0" style="-fx-background-color: #adad85;">
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="292.0" prefWidth="166.0" style="-fx-background-color: #adad85;">
                            <children>
@@ -66,6 +66,5 @@
             </VBox>
          </children>
       </StackPane>
-      <Pane fx:id="basePane" prefHeight="200.0" prefWidth="200.0" />
    </children>
 </Pane>

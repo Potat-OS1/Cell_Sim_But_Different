@@ -1,23 +1,58 @@
 package com.example.cell_sim_but_different;
 
+import com.example.cell_sim_but_different.particle.Identity;
 import com.example.cell_sim_but_different.particle.Particle;
 import javafx.animation.AnimationTimer;
 
-import static com.example.cell_sim_but_different.ParticlePane.particleArray;
+import java.util.HashMap;
+
+import static com.example.cell_sim_but_different.ParticlePane.coords;
+import static com.example.cell_sim_but_different.ParticlePane.particleMap;
 
 public class Update extends AnimationTimer {
     private long lastUpdate = 0;
+    Particle temp;
+    int randomPos;
+    @Override
+    public void start() {
+        lastUpdate = System.nanoTime();
+        super.start();
+    }
+
     @Override
     public void handle(long now) {
-        if (now - lastUpdate >= 3_000_000) {
-            for (Particle a : particleArray) {
-                if (a == null) {
+        if (now - lastUpdate >= 6_000_000) {
+            System.out.println(now-lastUpdate);
+            randomParticleRain();
+            randomParticleRain();
+            for (int[][] a : coords) {
+                for (int[] b : a) {
+                    temp = particleMap.get(b);
+                    if (temp == null) {
+                        continue;
+                    }
+                    if (temp.getMoved() == false) {
+                        temp.getIdentity().move(b);
+                        temp.setMoved(true);
+                    }
+                }
+            }
+//
+            for (HashMap.Entry<int[], Particle> a : particleMap.entrySet()) {
+                temp = a.getValue();
+                if (temp == null) {
                     continue;
                 }
-                a.getIdentity().move();
+                temp.setMoved(false);
             }
-
             lastUpdate = now;
         }
+    }
+
+
+
+    private void randomParticleRain() {
+        randomPos = Tools.generateRandom(0, Controller.size-1);
+        Tools.addParticle(coords[randomPos][0], Identity.WATER);
     }
 }

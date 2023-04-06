@@ -1,7 +1,23 @@
 <component name="InspectionProjectProfileManager">
   <profile version="1.0">
     <option name="myName" value="Project Default" />
+    <inspection_tool class="BooleanParameter" enabled="false" level="GRAMMAR_ERROR" enabled_by_default="false" editorAttributes="GRAMMAR_ERROR" />
+    <inspection_tool class="ClassReferencesSubclass" enabled="false" level="GRAMMAR_ERROR" enabled_by_default="false" editorAttributes="GRAMMAR_ERROR" />
     <inspection_tool class="CommentedOutCode" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
+    <inspection_tool class="DeclareCollectionAsInterface" enabled="false" level="GRAMMAR_ERROR" enabled_by_default="false" editorAttributes="GRAMMAR_ERROR" />
+    <inspection_tool class="FeatureEnvy" enabled="false" level="GRAMMAR_ERROR" enabled_by_default="false" editorAttributes="GRAMMAR_ERROR" />
+    <inspection_tool class="InstanceofChain" enabled="false" level="GRAMMAR_ERROR" enabled_by_default="false" editorAttributes="GRAMMAR_ERROR" />
+    <inspection_tool class="InstanceofThis" enabled="false" level="GRAMMAR_ERROR" enabled_by_default="false" editorAttributes="GRAMMAR_ERROR" />
+    <inspection_tool class="InterfaceMethodClashesWithObject" enabled="true" level="GRAMMAR_ERROR" enabled_by_default="true" editorAttributes="GRAMMAR_ERROR" />
+    <inspection_tool class="MagicNumber" enabled="false" level="GRAMMAR_ERROR" enabled_by_default="false" editorAttributes="GRAMMAR_ERROR" />
+    <inspection_tool class="MethodOnlyUsedFromInnerClass" enabled="false" level="GRAMMAR_ERROR" enabled_by_default="false" editorAttributes="GRAMMAR_ERROR" />
+    <inspection_tool class="OptionalUsedAsFieldOrParameterType" enabled="true" level="GRAMMAR_ERROR" enabled_by_default="true" editorAttributes="GRAMMAR_ERROR" />
+    <inspection_tool class="OverlyStrongTypeCast" enabled="false" level="GRAMMAR_ERROR" enabled_by_default="false" editorAttributes="GRAMMAR_ERROR" />
+    <inspection_tool class="PublicMethodNotExposedInInterface" enabled="false" level="GRAMMAR_ERROR" enabled_by_default="false" editorAttributes="GRAMMAR_ERROR" />
+    <inspection_tool class="StaticMethodOnlyUsedInOneClass" enabled="false" level="GRAMMAR_ERROR" enabled_by_default="false" editorAttributes="GRAMMAR_ERROR" />
+    <inspection_tool class="TypeMayBeWeakened" enabled="false" level="GRAMMAR_ERROR" enabled_by_default="false" editorAttributes="GRAMMAR_ERROR" />
+    <inspection_tool class="UnresolvedClassReferenceRepair" enabled="true" level="GRAMMAR_ERROR" enabled_by_default="true" editorAttributes="GRAMMAR_ERROR" />
+    <inspection_tool class="UseOfConcreteClass" enabled="false" level="GRAMMAR_ERROR" enabled_by_default="false" editorAttributes="GRAMMAR_ERROR" />
     <inspection_tool class="unused" enabled="false" level="WARNING" enabled_by_default="false" checkParameterExcludingHierarchy="false">
       <option name="LOCAL_VARIABLE" value="true" />
       <option name="FIELD" value="true" />
