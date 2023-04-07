@@ -8,6 +8,7 @@ public class Particle {
     double acceleration;
     private Rectangle r;
     private boolean moved;
+    private boolean falling;
 
     public Particle(Identity i) {
         r = new Rectangle(ParticlePane.rectSize, ParticlePane.rectSize);
@@ -19,8 +20,16 @@ public class Particle {
 
     private void click() {
         r.setOnMouseClicked(Event->{
-            System.out.println(identity + "  " + r + "   " + moved);
+            System.out.println(identity + "  " + getRectangle().getLayoutX() + " " + getRectangle().getLayoutY() + "   " + moved);
         });
+    }
+
+    public boolean getFalling() {
+        return falling;
+    }
+
+    public void toggleFalling(boolean b) {
+        falling = b;
     }
 
     public Identity getIdentity() {

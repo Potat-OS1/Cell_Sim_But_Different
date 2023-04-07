@@ -6,11 +6,12 @@ import com.example.cell_sim_but_different.particle.Properties;
 public class Rules extends ParticlePane{
     private static int x, y;
     private static Particle neighbor, self;
-    public static void moveDirection(int[] coord, int xForce, int yForce) {
+    private static int[] temp;
+    public static int[] moveDirection(int[] coord, int xForce, int yForce) {
         x = coord[0];
         y = coord[1];
         if (!checkCell(x, y , xForce, yForce)) {
-            return;
+            return coord;
         }
 
         neighbor = particleMap.get(coords[x+xForce][y+yForce]);
@@ -24,7 +25,7 @@ public class Rules extends ParticlePane{
             particleMap.get(coords[x][y]).setPosition(x, y);
             particleMap.get(coords[x+xForce][y+yForce]).setPosition(x+xForce, y+yForce);
         }
-
+        return coords[x+xForce][y+yForce];
     }
 
     public static boolean checkCell(int x, int y, int xForce, int yForce) {
@@ -42,16 +43,13 @@ public class Rules extends ParticlePane{
         }
         for (Properties p : self.getIdentity().getProperties()) {
             switch (p) {
-                case SOLID -> {
-                    return false;
-                }
-                case NONSOLID -> {
-                    if (caseCheck(Properties.NONSOLID, neighbor) || caseCheck(Properties.SOLID, neighbor)) {
+                case SOLID, NONSOLID -> {
+                    if (caseCheck(Properties.SOLID, neighbor)) {
                         return false;
                     }
                 }
                 case GAS -> {
-                    if (caseCheck(Properties.GAS, neighbor)) {
+                    if (caseCheck(Properties.NONSOLID, neighbor)) {
                         return false;
                     }
                 }
@@ -68,5 +66,14 @@ public class Rules extends ParticlePane{
             }
         }
         return false;
+    }
+
+    public static int[] moveMultiple(int[] coord, int xForce, int yForce, int reps) {
+        if (reps > 0) {
+            temp = moveDirection(coords[coord[0]][coord[1]], xForce, yForce);
+            reps--;
+            moveMultiple(coords[temp[0]][temp[1]], xForce, yForce, reps);
+        }
+        return coords[temp[0]][temp[1]];
     }
 }

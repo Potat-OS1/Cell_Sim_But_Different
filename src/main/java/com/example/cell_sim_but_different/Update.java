@@ -13,6 +13,9 @@ public class Update extends AnimationTimer {
     private long lastUpdate = 0;
     Particle temp;
     int randomPos;
+    public boolean weather = true;
+    public static int weatherStrength = 0;
+    public static int weatherDirection = -1;
     @Override
     public void start() {
         lastUpdate = System.nanoTime();
@@ -23,8 +26,9 @@ public class Update extends AnimationTimer {
     public void handle(long now) {
         if (now - lastUpdate >= 6_000_000) {
             System.out.println(now-lastUpdate);
-            randomParticleRain();
-            randomParticleRain();
+            randomParticleRain(0);
+
+            randomParticleRain(1);
             for (int[][] a : coords) {
                 for (int[] b : a) {
                     temp = particleMap.get(b);
@@ -32,6 +36,12 @@ public class Update extends AnimationTimer {
                         continue;
                     }
                     if (temp.getMoved() == false) {
+                        if (Tools.generateRandom(0, 1) == 0) {
+                            updateWeather(true);
+                        }
+                        else {
+                            updateWeather(false);
+                        }
                         temp.getIdentity().move(b);
                         temp.setMoved(true);
                     }
@@ -48,11 +58,24 @@ public class Update extends AnimationTimer {
             lastUpdate = now;
         }
     }
-
-
-
-    private void randomParticleRain() {
+    private void updateWeather(boolean addStrength) {
+        if (addStrength) {
+            if (weatherStrength <= 5) {
+                weatherStrength++;
+            }
+        }
+        else {
+            if (weatherStrength > -5) {
+                weatherStrength--;
+            }
+        }
+    }
+    private void randomParticleRain(int type) {
         randomPos = Tools.generateRandom(0, Controller.size-1);
-        Tools.addParticle(coords[randomPos][0], Identity.WATER);
+        switch(type) {
+            case (0) -> Tools.addParticle(coords[randomPos][0], Identity.WATER);
+            case (1) -> Tools.addParticle(coords[randomPos][0], Identity.SAND);
+        }
+
     }
 }
