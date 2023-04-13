@@ -12,8 +12,10 @@ public class Particle {
 
     public Particle(Identity i) {
         r = new Rectangle(ParticlePane.rectSize, ParticlePane.rectSize);
-        r.setFill(i.getColor());
-        identity = i;
+        if (i != null) {
+            r.setFill(i.getColor());
+            identity = i;
+        }
         moved = false;
         click();
     }

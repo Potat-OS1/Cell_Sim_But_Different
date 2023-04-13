@@ -43,8 +43,13 @@ public class Rules extends ParticlePane{
         }
         for (Properties p : self.getIdentity().getProperties()) {
             switch (p) {
-                case SOLID, NONSOLID -> {
+                case SOLID -> {
                     if (caseCheck(Properties.SOLID, neighbor)) {
+                        return false;
+                    }
+                }
+                case NONSOLID -> {
+                    if (caseCheck(Properties.SOLID, neighbor) || caseCheck(Properties.NONSOLID, neighbor)) {
                         return false;
                     }
                 }

@@ -36,13 +36,19 @@ public class Update extends AnimationTimer {
                         continue;
                     }
                     if (temp.getMoved() == false) {
-                        if (Tools.generateRandom(0, 1) == 0) {
-                            updateWeather(true);
+//                        if (Tools.generateRandom(0, 1) == 0) {
+//                            updateWeather(true);
+//                        }
+//                        else {
+//                            updateWeather(false);
+//                        }
+
+                        try {
+                            temp.getIdentity().move(b);
                         }
-                        else {
-                            updateWeather(false);
+                        catch (Exception ignored) {
+
                         }
-                        temp.getIdentity().move(b);
                         temp.setMoved(true);
                     }
                 }

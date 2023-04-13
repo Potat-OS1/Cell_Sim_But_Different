@@ -14,7 +14,8 @@ public enum Identity {
         public void move(int[] key) {
             particleMap.get(coords[key[0]][key[1]]).toggleFalling(Rules.checkCell(key[0], key[1], 0, 1));
             if (particleMap.get(coords[key[0]][key[1]]).getFalling() == true) {
-                key = Rules.moveMultiple(coords[key[0]][key[1]], Update.weatherDirection * Update.weatherStrength, 1, 4);
+                key = Rules.moveMultiple(coords[key[0]][key[1]], 0, 1, 4);
+                //key = Rules.moveMultiple(coords[key[0]][key[1]], Update.weatherDirection * Update.weatherStrength, 1, 4);
                 //key = Rules.moveMultiple(coords[key[0]][key[1]], Update.weatherDirection, 0, Update.weatherStrength);
             }
             else {

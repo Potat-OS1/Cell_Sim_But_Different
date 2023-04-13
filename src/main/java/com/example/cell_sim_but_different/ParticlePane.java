@@ -25,6 +25,10 @@ public class ParticlePane {
             d++;
         }
 
-        Tools.addParticle(coords[(int) size/2][(int) size/2], Identity.WATER);
+//        for (int[][] a : coords) {
+//            for (int [] b : a) {
+//                particleMap.put(coords[b[0]][b[1]], new Particle(null));
+//            }
+//        }
     }
 }
